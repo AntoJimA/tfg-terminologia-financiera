@@ -1,0 +1,1 @@
+Fichero main.oy lineas 86 a 92 tenemos automode y tokenizer
