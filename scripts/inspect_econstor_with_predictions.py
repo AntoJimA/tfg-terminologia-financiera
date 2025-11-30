@@ -90,7 +90,7 @@ def main():
     if pred_obj is None:
         print("\n⚠️ No he encontrado predicciones para este índice.")
     else:
-        print("\n========== PREDICCIONES (AttentionRank + BERT) ==========")
+        print("\n========== PREDICCIONES (AttentionRank) ==========")
         print(f"pred.doc_id (índice en predicciones): {pred_obj.get('doc_id')}")
         print("\nPredicted keywords:")
         print(pred_obj.get("predicted_keywords", []))

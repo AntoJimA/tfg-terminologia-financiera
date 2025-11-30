@@ -87,6 +87,8 @@ if __name__ == '__main__':
     lang= args.lang #'en'
     dataset_name = args.dataset_name # 'example'     #dataset_name = 'SemEval2018' #dataset_name = 'SemEval2010_GTP3'
 
+    print(f"[INFO] Cargando modelo HuggingFace: {modelname}")
+
     k_val = int(args.k_value)
 
     # if type== 'bert':

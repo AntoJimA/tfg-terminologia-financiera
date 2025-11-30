@@ -17,10 +17,10 @@ rm -rf econstor/res*
 echo "📌 [3/5] Reconstruyendo econstor/docsutf8 desde econstor_finance_en.jsonl..."
 python scripts/rebuild_econstor_docs_for_attentionrank.py
 
-echo "📌 [4/5] Ejecutando AttentionRank (pipeline completa) con BERT base..."
+echo "📌 [4/5] Ejecutando AttentionRank (pipeline completa) con FinBERT..."
 python attentionrank/main.py \
   --dataset_name econstor \
-  --model_name_or_path bert-base-uncased \
+  --model_name_or_path ProsusAI/finbert \
   --model_type bert \
   --lang en \
   --type_execution exec \
@@ -35,8 +35,8 @@ python attentionrank/export_attentionrank_predictions.py \
 
 # Renombramos el fichero genérico a uno específico del modelo
 if [ -f "econstor/predictions_top15.jsonl" ]; then
-  mv econstor/predictions_top15.jsonl econstor/predictions_bert_top15.jsonl
-  echo "✅ Predicciones guardadas en econstor/predictions_bert_top15.jsonl"
+  mv econstor/predictions_top15.jsonl econstor/predictions_finbert_top15.jsonl
+  echo "✅ Predicciones guardadas en econstor/predictions_finbert_top15.jsonl"
 else
   echo "⚠️ No se ha encontrado econstor/predictions_top15.jsonl. Algo ha fallado en la exportación."
 fi
