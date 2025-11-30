@@ -1,4 +1,4 @@
-from transformers import BertTokenizer, TFBertModel, AutoModel, AutoTokenizer
+from transformers import BertTokenizer, AutoModel, AutoTokenizer
 
 from src.attentionrank.attentions import step_5, step6,step7,step8,step9,step10,update_paths
 from src.attentionrank.CandidatesGenerator import CandidatesGenerator
@@ -6,6 +6,7 @@ from src.attentionrank.ModelEmbedding import ModelEmbedding
 
 from src.attentionrank.preprocessing import preprocessing_module, update_paths_preprocessing
 from src.attentionrank.eval import evaluate_results, generate_results, update_paths_eval
+import sys
 
 import argparse
 
@@ -51,6 +52,11 @@ if __name__ == '__main__':
                         default='roberta-base',
                         type=str,
                         help="model used")
+
+    parser.add_argument("--exec_step",
+                        default="all",
+                        type=str,
+                        help="Ultimo paso a ejecutar (step5 o all)")
 
     #parser.add_argument("--local_rank",
     #                    default=-1,
@@ -111,6 +117,12 @@ if __name__ == '__main__':
     ## step 5
     print('STEP 5')
     step_5(lang,bertemb,candidategen)
+
+    # Si solo queremos ejecutar hasta el step 5, salimos aqui
+    if args.exec_step == 'step5':
+        print("Se ha indicado detenerse tras STEP 5. Finalizando ejecucion.")
+        sys.exit(0)
+
     ## step 6
     print('STEP 6')
     step6( 512,20000)

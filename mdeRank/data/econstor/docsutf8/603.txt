@@ -1,0 +1,13 @@
+The Labour Market Characteristics and Labour Market Impacts of Immigrants in Ireland — The purpose of this paper is two-fold. We firstly produce a labour market profile of non-Irish
+immigrants who arrived in Ireland in the ten years to 2003. We then go on to use the labour
+market profile in estimating the impact of immigration (non-Irish) on the Irish labour market.
+Immigrants are shown to be a highly educated group. However, they are not all employed in
+occupations that fully reflect their education levels. The model of the labour market that we
+use to simulate the impact of immigration differentiates between low-skilled and high-skilled
+labour. This allows us to estimate the impact of immigrants (a) if they were employed at a
+level fitting their education and (b) if they were employed in occupations below their
+educational level. Our results show that under scenario (a) immigrants who arrived between
+1993 and 2003 increased GNP by between 3.5 and 3.7%, largely by lowering skilled wages
+by around 6% and increasing Ireland?s competitiveness. Under scenario (b), the increase in
+GNP is reduced to 3% because the impact on skilled wages is lower. If we assume the
+immigration is primarily unskilled, the impact on earnings inequality is reversed.

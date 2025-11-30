@@ -1,4 +1,3 @@
-
 from transformers import pipeline, AutoTokenizer, AutoModel
 
 
@@ -188,8 +187,8 @@ class ModelEmbedding():
             attentions = output.attentions
 
         else:
-            encoded_input = self.tokenizer(sentence, return_tensors='tf')
-            output = self.model(encoded_input, output_attentions=True)
+            encoded_input = self.tokenizer(sentence, return_tensors='pt', truncation=True)
+            output = self.model(**encoded_input, output_attentions=True)
             attentions = output.attentions
         return attentions,encoded_input
 
@@ -207,15 +206,3 @@ def separar_caracteres(texto):
     patron = r'(\()|(\))|(-)(\w)'
     texto_separado = re.sub(patron, r'\1 \2\3 \4', texto)
     return texto_separado
-
-
-# Ejemplo de uso
-
-texto_original = '(ejemplo-texto)'
-texto_separado = separar_caracteres(texto_original)
-print("Texto original:", texto_original)
-print("Texto separado:", texto_separado)
-
-
-
-

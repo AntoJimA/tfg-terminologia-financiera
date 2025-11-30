@@ -42,10 +42,8 @@ def process_sentence(sentence):
 
     array_map = []
     for mapa in attentions:
-        if model_type== 'bert':
-            array_map.append(mapa)# TF
-        else:
-            array_map.append(mapa.detach().numpy())
+        # Convertir tensores de PyTorch a NumPy (desacoplando del grafo de gradientes)
+        array_map.append(mapa.detach().cpu().numpy())
     array_map = numpy.array(array_map)
     array_map = array_map[:, 0, :, :, :]
 

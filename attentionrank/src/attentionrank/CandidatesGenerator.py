@@ -1,4 +1,3 @@
-
 import spacy
 import re
 
@@ -104,10 +103,4 @@ class CandidatesGenerator():
             if len(chunk_processed) < 2:
                 continue
             candidates.append(chunk_processed)
-
-
-
-
-Generator =CandidatesGenerator('es')
-print(Generator.generate_candidates("Trabajo nocturno o laboral, extractivo"))
-
+        return candidates

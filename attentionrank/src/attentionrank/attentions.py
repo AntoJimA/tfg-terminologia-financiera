@@ -280,6 +280,10 @@ def step6_file( filename, max_sequence_length, num_docs):
     candidates = NounModel.generate_candidates(text)
     print('Candidates', candidates)
 
+    # Si no hay candidatos, saltar este fichero
+    if not candidates:
+        print(f"[STEP 6] Sin candidatos para {file}, se salta este fichero.")
+        return
 
     # w = csv.writer(open(save_path + file + "_candidate_tokenized.csv", "w"))
     rows = []
@@ -361,10 +365,23 @@ def step7():
         if os.path.exists(os.path.join(save_path , file + "_attn_paired.csv")):
             print('already')
             continue
+
+        # rutas a los ficheros necesarios
+        token_attn_file = os.path.join(token_attn_path , file + "token_attn_paired.csv")
+        candidate_tok_file = os.path.join(candidate_token_path, file + "_candidate_tokenized.csv")
+
+        # si falta alguno de los dos, saltamos este fichero
+        if not os.path.exists(token_attn_file):
+            print(f"[STEP 7] No token_attn_paired para {file}, se salta este fichero.")
+            continue
+        if not os.path.exists(candidate_tok_file):
+            print(f"[STEP 7] No candidate_tokenized para {file}, se salta este fichero.")
+            continue
+
         # read token attn to list
         token_list = []
         attn_list = []
-        with open(os.path.join(token_attn_path , file + "token_attn_paired.csv"), newline='',encoding="utf-8") as csvfile:
+        with open(token_attn_file, newline='', encoding="utf-8") as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',')
             for row in spamreader:
                 k = row[0]
@@ -375,41 +392,12 @@ def step7():
         # read candidate tokens to dict
         candidate_token_dict = {}
         #print(candidate_token_path + file + "_candidate_tokenized.csv")
-        with open(os.path.join(candidate_token_path, file + "_candidate_tokenized.csv"), newline='',encoding="utf-8") as csvfile:
+        with open(candidate_tok_file, newline='', encoding="utf-8") as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',')
             for row in spamreader:
                 k = row[0]
                 v = row[1][2:-2].split("', '")
                 candidate_token_dict[k] = v
-                # print(k)
-
-        #print('este,',candidate_token_dict)
-        #print('Token',token_list)
-        # candidate attn pairing
-        candidate_attn_dict = {}
-        for k, v in candidate_token_dict.items():
-            window = len(v)
-            matched = []
-            for t, token in enumerate(token_list):
-                if token_list[t:t + window] == v:
-                    local_attn = sum(attn_list[t:t + window])
-                    if k in candidate_attn_dict.keys():
-                        candidate_attn_dict[k] += local_attn
-                    else:
-                        candidate_attn_dict[k] = local_attn
-        # print(candidate_attn_dict)
-        #print('esteotro',candidate_attn_dict)
-        # w = csv.writer(open(save_path + file + "_attn_paired.csv", "w"))
-        rows = []
-        for k, v in candidate_attn_dict.items():
-            # w.writerow([k, v])
-            rows.append([k, v])
-
-
-        write_csv_file(os.path.join(save_path , file + "_attn_paired.csv"), rows)
-        run_time = time.time()
-        print(n, "th file", file, "running time", run_time - start_time)
-
 
 def truncate_seq_pair(tokens_a, tokens_b, max_num_tokens, rng):
     """Truncates a pair of sequences to a maximum sequence length."""
@@ -552,9 +540,10 @@ def step8(bertemb,nounModel,lang):
         text = text.replace('$$$$$$', ' ')
 
         candidates = NounModel.generate_candidates(text)
-        if len(candidates)==0:
-            candidates.append('None')
-            print('error')
+        # Si no hay candidatos (None o lista vacía), saltar este fichero
+        if not candidates:
+            print(f"[STEP 8] Sin candidatos para {file}, se salta este fichero.")
+            continue
 
         #print('Candidates total',candidates)
         rows = []
@@ -799,14 +788,16 @@ def step10(language):
     files = get_files_from_path(DOCS_FOLDER)
     files = get_files_ids(files)
 
-    # run all files
+        # run all files
     for n, file in enumerate(files):
 
         # doc embedding set
         embedding_path = os.path.join(PROCESSED_FOLDER, 'doc_word_embed_by_sen' , file )
+        if not os.path.exists(embedding_path):
+            print(f"[STEP 10] No doc_word_embed_by_sen para {file}, se salta este fichero.")
+            continue
         sentence_files = os.listdir(embedding_path)  # get sentence list
         # print(sentence_files)
-
         all_sentences_word_embedding = []
         for sentence_file in sentence_files:  # do not need to sort
             sentence_word_embedding = []
@@ -837,11 +828,15 @@ def step10(language):
         # print(np.shape(all_sentences_word_embedding))  # sentence number ex. 19
         # print(np.shape(all_sentences_word_embedding[0]))  # sentence 0 words number ex. (51,768)
 
-        # get querys embeddings path
+                # get querys embeddings path
         querys_name_set = []
         querys_embedding_set = []
         querys_embeddings_path = os.path.join(PROCESSED_FOLDER, 'candidate_embedding')
-        with open(os.path.join(querys_embeddings_path , file + "_candidate_embedding.csv"), newline='',encoding="utf-8") as csvfile:
+        candidate_emb_file = os.path.join(querys_embeddings_path , file + "_candidate_embedding.csv")
+        if not os.path.exists(candidate_emb_file):
+            print(f"[STEP 10] No candidate_embedding para {file}, se salta este fichero.")
+            continue
+        with open(candidate_emb_file, newline='',encoding="utf-8") as csvfile:
             spamreader = csv.reader(csvfile, delimiter=',')
             for row in spamreader:
                 k = row[0]

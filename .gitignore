@@ -1,0 +1,17 @@
+# Outputs de AttentionRank
+econstor/processed_econstor/
+econstor/res*/
+econstor/docsutf8/
+econstor/predictions_top15.jsonl
+econstor/predictions_*.jsonl
+
+# Archivo gigante base
+econstor_finance_en.jsonl
+
+# Cualquier csv gigante generado
+*.csv
+
+# Cache, entornos y compilados
+__pycache__/
+*.pyc
+venv/

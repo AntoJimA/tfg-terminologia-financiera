@@ -6,6 +6,8 @@ import time
 from .attentions import  clean_folder
 from .utils import write_list_file,get_files_from_path,get_files_ids
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 
 
@@ -81,13 +83,10 @@ def generate_results( language, f1_top=10):
     # my_key = os.path.join(label_path, file + ".key")
 
     if language =='es':
-        ## poner el español
-        #stopwords_file = './src/attentionrank/UGIR_stopwords_es.txt'
-        stopwords_file = os.path.join(".","src", "attentionrank","UGIR_stopwords_es.txt")
+        stopwords_file = os.path.join(BASE_DIR, "UGIR_stopwords_es.txt")
         mystopwords = read_term_list_file(stopwords_file)
     else:
-
-        stopwords_file = os.path.join(".","src", "attentionrank","UGIR_stopwords.txt") #stopwords_file = './src/attentionrank/.txt'
+        stopwords_file = os.path.join(BASE_DIR, "UGIR_stopwords.txt")
         mystopwords = read_term_list_file(stopwords_file)
 
     dataset = DATASET_NAME
@@ -210,13 +209,9 @@ def generate_results( language, f1_top=10):
             a1 = min(accumulated_self_attn_dict.values())
             b1 = max(accumulated_self_attn_dict.values())
             for k, v in accumulated_self_attn_dict.items():
-                # print('term', k)
-                if k in cross_attn_dict.keys() and k.split(' ')[0] not in mystopwords:
-                    # print('passterm', k)
+                if k in cross_attn_dict.keys():
                     accumulated_self_attn_dict[k] = (v - a1) / (b1 - a1)
                     ranking_dict[k] = accumulated_self_attn_dict[k] * (t) / 10 + cross_attn_dict[k] * (10 - t) / 10
-                #else:
-                 #   print('Not passed ' + k, k.split(' ')[0] not in mystopwords)
 
             f1_k = 0
             # print('Prediction:')

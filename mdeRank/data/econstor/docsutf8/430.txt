@@ -1,0 +1,8 @@
+Housing, Mobility and Unemployment — This paper develops a model that shows why high-skilled workers move more and are therefore
+unemployed less than low-skilled workers. The model can explain the paradoxical empirical
+regularity that higher owner-occupation rates are associated with higher levels of unemployment
+although home-owners tend to be unemployed less. The choice of housing tenure affects
+moving costs and thereby regional mobility and unemployment. The paper analyzes the impact
+of symmetric and asymmetric shocks on mobility and unemployment, and discusses effects of
+government intervention in the housing market. In addition, it is shown that moving costs reduce
+job search effort and search effectiveness.

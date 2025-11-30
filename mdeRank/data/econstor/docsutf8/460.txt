@@ -1,0 +1,13 @@
+Strategic wage setting and coordination frictions with multiple applications — We examine wage competition in a model where identical workers choose the number of jobs
+to apply for and identical firms simultaneously post a wage. The Nash equilibrium of this
+game exhibits the following properties: (i) an equilibrium where workers apply for just one
+job exhibits unemployment and absence of wage dispersion; (ii) an equilibrium where
+workers apply for two or for more (but not for all) jobs always exhibits wage dispersion and,
+typically, unemployment; (iii) the equilibrium wage distribution with a higher vacancy-tounemployment
+ratio first-order stochastically dominates the wage distribution with a lower
+level of labor market tightness; (iv) the average wage is non-monotonic in the number of
+applications; (v) the equilibrium number of applications is non-monotonic in the vacancy-tounemployment
+ratio; (vi) a minimum wage increase can be welfare improving because it
+compresses the wage distribution and reduces the congestion effects caused by the socially
+excessive number of applications; and (vii) the only way to obtain efficiency is to impose a
+mandatory wage that eliminates wage dispersion altogether.
