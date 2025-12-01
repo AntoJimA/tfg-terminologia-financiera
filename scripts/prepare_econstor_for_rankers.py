@@ -8,7 +8,7 @@ TEST_PATH = Path("data/test.jsonl")
 DATASET_NAME = "econstor"
 
 # Rutas destino para AttentionRank y MDERank
-AR_DOCS_DIR   = Path(f"attentionrank/{DATASET_NAME}/docsutf8")
+AR_DOCS_DIR   = Path("econstor/docsutf8")
 MDR_DOCS_DIR  = Path(f"mdeRank/data/{DATASET_NAME}/docsutf8")
 MDR_KEYS_DIR  = Path(f"mdeRank/data/{DATASET_NAME}/keys")
 

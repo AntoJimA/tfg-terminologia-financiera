@@ -1,0 +1,9 @@
+Dynamic Wage Bargaining if Benefits are Tied to Individual Wages — In dynamic wage bargaining models it is usually assumed that individual unemployment
+benefits are a fraction of the average wage level. In most countries, however, unemployment
+benefits are instead tied to the previous level of individually earned wages. We show how the
+analysis has to be modified if this fact is taken into account and compare our findings for the
+wage-setting curve with outcomes under other unemployment compensation schemes. In
+particular, we show that the widely used vertical wage-setting curve relies on more restrictive
+assumptions than usually considered. We also demonstrate that a reduction of unemployment
+benefits of those who get unemployed after the bargaining period leads to higher
+equilibrium unemployment.

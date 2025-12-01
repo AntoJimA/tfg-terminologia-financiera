@@ -817,8 +817,15 @@ def step10(language):
                     if k not in stop_words_list + punctuations:
                         temp_list = []
                         for item in value_list:
-                            if item != '':
-                                temp_list.append(float(item))
+                            clean = str(item).strip()
+                            # Saltar valores vacíos o marcadores como '...'
+                            if clean in ("", "..."):
+                                continue
+                            try:
+                                temp_list.append(float(clean))
+                            except ValueError:
+                                # Saltar cualquier otro valor no numérico
+                                continue
                         v = np.array(temp_list)
                         sentence_word_embedding.append(v)
             all_sentences_word_embedding.append(sentence_word_embedding)
@@ -844,7 +851,19 @@ def step10(language):
                 v = v.replace(', dtype=float32', '')[9:-3].split(']), array([')
                 candidate_embeddings_set = []
                 for l in range(len(v)):
-                    candidate_embeddings_set.append(np.array([float(item) for item in v[l].split(', ')]))
+                    raw_items = v[l].split(', ')
+                    clean_floats = []
+                    for item in raw_items:
+                        s = str(item).strip()
+                        if s in ("", "..."):
+                            continue
+                        try:
+                            clean_floats.append(float(s))
+                        except ValueError:
+                            # Skip any other malformed values
+                            continue
+                    if clean_floats:
+                        candidate_embeddings_set.append(np.array(clean_floats))
                 querys_name_set.append(k)
                 querys_embedding_set.append(candidate_embeddings_set)
                 # print(k, candidate_embeddings_set)
