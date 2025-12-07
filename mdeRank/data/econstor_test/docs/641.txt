@@ -1,0 +1,15 @@
+Do Workers Work More When Wages Are High? — The canonical model of life-cycle labor supply predicts a positive response of labor supplied
+to transitory wage changes. We tested this prediction by conducting a randomized field
+experiment with bicycle messengers. In contrast to previous studies we can observe in which
+way working hours as well as effort respond to a wage increase and we have full control
+regarding the workers? anticipation of the wage increase. The evidence indicates that workers
+increase monthly working time and decrease their daily effort but since the working time
+effect dominates the effort effect overall labor supply increases. The decrease in daily effort
+contradicts the canonical model of intertemporal labor supply with time separable
+preferences, since the wage in our experiment directly rewarded effort. We show that a
+simple model of loss averse, reference dependent, preferences can account for both the
+increase in working time and the decrease in daily effort. Moreover, we elicit independent
+individual measures of loss aversion and show that workers who are more prone to loss
+aversion are more likely to reduce effort in response to higher wages. Our model and our
+results also reconcile the seemingly contradictory evidence reported in previous studies
+(Camerer et al. 1997, Oettinger 1999) of high frequency labor supply.

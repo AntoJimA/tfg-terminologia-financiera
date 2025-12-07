@@ -779,27 +779,39 @@ if __name__ == '__main__':
 
 
 
-    porter=nltk.PorterStemmer()
 
-    '''
-    if args.dataset_name =="SemEval2017":
-        data, referneces = get_semeval2017_data(args.dataset_dir + "/docsutf8", args.dataset_dir + "/keys")
-    if args.dataset_name =="SemEval2018":
-        data, referneces = get_semeval2017_data(args.dataset_dir + "/docsutf8", args.dataset_dir + "/keys")
+    porter = nltk.PorterStemmer()
+
+    # Selección del dataset según el nombre
+    if args.dataset_name == "SemEval2017":
+        data, references = get_semeval2017_data(
+            args.dataset_dir + "/docsutf8",
+            args.dataset_dir + "/keys"
+        )
+    elif args.dataset_name == "SemEval2018":
+        data, references = get_semeval2017_data(
+            args.dataset_dir + "/docsutf8",
+            args.dataset_dir + "/keys"
+        )
     elif args.dataset_name == "DUC2001":
-        data, referneces = get_duc2001_data(args.dataset_dir)
-    elif args.dataset_name == "nus" :
-        data, referneces = get_long_data(args.dataset_dir + "/nus_test.json")
+        data, references = get_duc2001_data(args.dataset_dir)
+    elif args.dataset_name == "nus":
+        data, references = get_long_data(args.dataset_dir + "/nus_test.json")
     elif args.dataset_name == "krapivin":
-        data, referneces = get_long_data(args.dataset_dir + "/krapivin_test.json")
+        data, references = get_long_data(args.dataset_dir + "/krapivin_test.json")
     elif args.dataset_name == "kp20k":
-        data, referneces = get_short_data(args.dataset_dir + "/kp20k_valid200_test.json")
+        data, references = get_short_data(args.dataset_dir + "/kp20k_valid200_test.json")
     elif args.dataset_name == "SemEval2010":
-        data, referneces = get_short_data(args.dataset_dir + "/semeval_test.json")
+        data, references = get_short_data(args.dataset_dir + "/semeval_test.json")
+    elif args.dataset_name == "econstor_test":
+        # Nuestro ECONSTOR preparado por scripts/prepare_econstor_for_mderank.py
+        data, references = get_semeval2017_data(
+            args.dataset_dir + "/docs",
+            args.dataset_dir + "/gold"
+        )
     else:
-        data, referneces = get_inspec_data(args.dataset_dir)
-    '''
-    data, references = get_semeval2017_data(args.dataset_dir + "/docsutf8", args.dataset_dir + "/keys")
+        data, references = get_inspec_data(args.dataset_dir)
+
     log.logger.info("Dataset")
     log.logger.info(data)
     log.logger.info("References")

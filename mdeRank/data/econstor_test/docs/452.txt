@@ -1,0 +1,1 @@
+A Two-Period Model with Portfolio Choice: Understanding Results from Different Solution Methods — Using a stylized two-period model we compare portfolio solutions from two local solution approaches - the approach of Judd and Guu (2001) and the approach of Devereux and Sutherland (2010, 2011) - with the true nonlinear portfolio solution.

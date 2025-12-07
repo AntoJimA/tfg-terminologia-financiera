@@ -1,0 +1,9 @@
+Public-private partnership and schooling outcomes across countries — The paper provides a comparative analysis of the association between student achievement
+and public-private partnerships (PPPs) in schooling across countries. Student-level data from
+the PISA international achievement test provides information on the public-private character
+of both operation and funding of each tested school. Across countries, public operation is
+associated with lower student outcomes, but public funding with better student outcomes.
+Thus, systems of PPPs that combine private operation with public funding do best among all
+possible operation-funding combinations, while PPPs that combine public operation with
+private funding do worst. The advantage of private operation is particularly strong in
+countries with large shares of public funding.

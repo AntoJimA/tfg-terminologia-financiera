@@ -1,0 +1,1 @@
+The existence of perfect equilibrium in discontinuous games — We prove the existence of a trembling-hand perfect equilibrium within a class of compact, metric, and possibly discontinuous games. Our conditions for existence are easily verified in a variety of economic games.

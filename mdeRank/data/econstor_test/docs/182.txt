@@ -1,0 +1,9 @@
+Social Reciprocity — We define social reciprocity as the act of demonstrating one's disapproval, at some personal
+cost, for the violation of widely-held norms (e.g., don't free ride). Social reciprocity differs from
+standard notions of reciprocity because social reciprocators intervene whenever a norm is
+violated and do not condition intervention on potential future payoffs, revenge, or altruism.
+Instead, we posit that social reciprocity is a triggered normative response. Our experiment
+confirms the existence of social reciprocity and demonstrates that more socially efficient
+outcomes arise when reciprocity can be expressed socially. To provide theoretical
+foundations for social reciprocity, we show that generalized punishment norms survive in one
+of the two stable equilibria of an evolutionary game with selection drift.

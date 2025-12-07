@@ -1,0 +1,6 @@
+Competition in the German Broadband Access Market — This paper gives a survey of the current state of competition in the German
+Broadband access market. Existing regulations and their impact on the deployment
+of high-speed Internet access are evaluated. It is argued that facilities-based
+competition is preferable to open-network regulations. The most prospective
+candidate as an independent network capable of generating facilities-based
+competition in Germany is the cable-broadcasting network. The current developments in the cable industry and the expectations for its success in the short to medium term lead to the conclusion that in the short run at least, there is a need for unbundling regulation to foster competition. Improvements to the current open-network regulation-practices in Germany are suggested.
